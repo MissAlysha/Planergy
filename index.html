@@ -211,10 +211,10 @@
 
         /* Energy & Communication Sections */
         .energy-label {
-            font-size: 0.92rem;
+            font-size: 1.4rem;
             color: var(--text);
-            font-weight: 500;
-            margin-bottom: 10px;
+            font-weight: 600;
+            margin-bottom: 18px;
         }
 
         .energy-buttons {
@@ -416,6 +416,11 @@
             border-left-color: #F59E0B;
         }
 
+        .timeline-event.dopamine {
+            background: #FCE7F3;
+            border-left-color: #EC4899;
+        }
+
         .timeline-event.completed {
             opacity: 0.6;
         }
@@ -545,8 +550,8 @@
             <div class="left-column">
                 <!-- 1. Record Your Thoughts -->
                 <div class="card brain-dump-section" role="region" aria-labelledby="brain-dump-heading">
-                    <h2 id="brain-dump-heading">Record Your Thoughts</h2>
-                    <p class="brain-dump-subtitle">Click to record or type your tasks</p>
+                    <h2 id="brain-dump-heading">Step 1: Add Your Tasks</h2>
+                    <p class="brain-dump-subtitle">Type one task per line or record one task with voice</p>
                     
                     <button class="voice-button-large" 
                         id="voiceBtn" 
@@ -573,21 +578,7 @@
                         aria-label="Task input area"
                         aria-hidden="true">
                         <textarea id="taskInput" 
-                            placeholder="Input your tasks
-
-
-
-Shift + Enter for new line
-
-
-
-Example:
-
-Buy groceries
-
-Email team
-
-Call mom"
+                            placeholder="Type your tasks"
                             aria-label="Enter your tasks. Each line will become a separate task. Press Shift+Enter for a new line."
                             aria-describedby="task-input-help"></textarea>
                         <span id="task-input-help" class="sr-only">Enter tasks, one per line. Press Add All Tasks when done.</span>
@@ -599,7 +590,7 @@ Call mom"
 
                 <!-- 2. Energy Level -->
                 <div class="card" role="region" aria-labelledby="energy-heading">
-                    <div class="energy-label" id="energy-heading">How's your energy today?</div>
+                    <div class="energy-label" id="energy-heading">Step 2: Choose Today's Energy Level</div>
                     <div class="energy-buttons" role="radiogroup" aria-labelledby="energy-heading">
                         <button class="energy-btn" 
                             onclick="setEnergy('low')"
@@ -621,7 +612,7 @@ Call mom"
 
                 <!-- 3. Communication Preference -->
                 <div class="card" role="region" aria-labelledby="communication-heading">
-                    <div class="energy-label" id="communication-heading">Communication preference</div>
+                    <div class="energy-label" id="communication-heading">Step 3: Choose How You Want to Communicate</div>
                     <div class="energy-buttons" role="radiogroup" aria-labelledby="communication-heading">
                         <button class="energy-btn active" 
                             id="verbalBtn" 
@@ -643,7 +634,7 @@ Call mom"
             <div class="right-column">
                 <!-- 1. Your Tasks -->
                 <div class="card" role="region" aria-labelledby="tasks-heading">
-                    <h2 id="tasks-heading">Your Tasks</h2>
+                    <h2 id="tasks-heading">Step 4: Review and Prioritise Your Tasks</h2>
                     <div class="task-list" 
                         id="taskList" 
                         role="list"
@@ -654,7 +645,8 @@ Call mom"
 
                 <!-- 2. Today's Schedule -->
                 <div class="card" role="region" aria-labelledby="schedule-heading">
-                    <h2 id="schedule-heading">Today's Schedule</h2>
+                    <h2 id="schedule-heading">Step 5: Your Adaptive Schedule for Today</h2>
+                    <p class="brain-dump-subtitle" style="margin-bottom: 18px;">Drag tasks around as your energy changes</p>
                     <div class="schedule-timeline" 
                         id="schedule"
                         role="table"
@@ -674,7 +666,7 @@ Call mom"
                         aria-label="Toggle dopamine menu section"
                         onkeydown="if(event.key==='Enter'||event.key===' ') { event.preventDefault(); toggleDopamineSection(); }">
                         <div>
-                            <h2 id="dopamine-heading">🌟 Dopamine Menu</h2>
+                            <h2 id="dopamine-heading">Step 6: Dopamine Menu</h2>
                             <span id="dopamineToggleIcon" class="dopamine-toggle-icon" aria-hidden="true">▼</span>
                         </div>
                         <button class="btn-add-task dopamine-add-btn" 
@@ -691,7 +683,7 @@ Call mom"
                         role="region"
                         aria-labelledby="dopamine-heading">
                         <p class="dopamine-subtitle">
-                            Low-energy activities for joy. Click to add!
+                            Add fun, low-pressure tasks to your schedule today
                         </p>
                         
                         <div id="dopamineInput" 
@@ -1235,8 +1227,9 @@ Call mom"
                         const energyLabel = getEnergyLabel(event.task.energyRequired || 2);
                         const taskId = event.task.id;
                         const isCompleted = event.task.completed ? 'true' : 'false';
+                        const taskClass = event.task.dopamine ? 'dopamine' : event.task.priority;
                         html += `
-                            <div class="timeline-event ${event.task.priority} ${event.task.completed ? 'completed' : ''}" 
+                            <div class="timeline-event ${taskClass} ${event.task.completed ? 'completed' : ''}" 
                                 draggable="true" 
                                 role="button"
                                 tabindex="0"
