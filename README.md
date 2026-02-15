@@ -1,39 +1,29 @@
-# Planergy
-Energy-Adaptive Planning for Neurodivergent Workflows
+**Planergy**
 
-What It Is
+Energy-adaptive planning for fluctuating executive function.
 
-Planergy is a planning system that schedules based on fluctuating energy levels instead of fixed time blocks.
+**What It Is**
 
-Traditional productivity tools assume consistent cognitive output.
+Planergy is a planning system that schedules around energy levels instead of fixed time blocks.
+
+Traditional tools assume consistent cognitive output.
 Planergy assumes variability.
 
-⸻
+**Core Features**
+	• Energy-based task tagging (Low / Medium / High load)
+	• Non-verbal mode (reduced text interface)
+	• Dopamine mapping (quick wins vs deep work)
+	• Adaptive reshuffling based on current energy
 
-The Problem
+**Why I Built This**
 
-Most planners optimise for time.
+I started Planergy during a 48-hour hackathon while I was non-verbal for much of the build.
 
-But many neurodivergent users (ADHD, autistic, burnout-prone, chronic illness, etc.) experience:
-	•	Fluctuating executive function
-	•	Variable cognitive bandwidth
-	•	Task paralysis from rigid scheduling
-	•	Overwhelm from dense interfaces
+Most productivity tools assume stable energy and executive function. Mine fluctuates.
 
-Time-based planning fails when energy is the real constraint.
+Planergy is an experiment in designing work systems that adapt to biological reality instead of idealized output.
 
-⸻
 
-The Approach
+**Status**
 
-Planergy introduces:
-	•	Energy-based task tagging (Low / Medium / High cognitive load)
-	•	Non-verbal mode (reduced text UI)
-	•	Dopamine mapping (quick wins vs heavy tasks)
-	•	Adaptive daily reshuffling based on energy state
-
-Instead of asking:
-“What time will you do this?”
-
-It asks:
-“What can your brain handle right now?”
+Prototype. Exploring future directions including adaptive AI scheduling and community features.
